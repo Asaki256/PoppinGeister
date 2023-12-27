@@ -9,11 +9,8 @@ public class ResultImageController : MonoBehaviour
     GameObject[] childBars;
     TextMeshProUGUI childText_main;
     TextMeshProUGUI childText_detail;
-    
-     RectTransform rectTransform;
-    // private Sequence sequence;
+    RectTransform rectTransform;
 
-    // Start is called before the first frame update
     void Start()
     {
         childBars = GameObject.FindGameObjectsWithTag("ResultImage_bar");
@@ -39,7 +36,6 @@ public class ResultImageController : MonoBehaviour
                                     +difPlayerNum+"Pの【"+GetUnitName(difUnitNum)+"】を倒した";
         }
         
-
         // 勝利プレイヤーに基づく色の変更
         // 1P勝利の場合
         if(winPlayerNum == 1){
@@ -74,7 +70,7 @@ public class ResultImageController : MonoBehaviour
         Color color = default(Color);
         if (ColorUtility.TryParseHtmlString(colorCode, out color))
         {
-           //Colorを生成できたらそれを返す
+           //Colorを生成できた場合その色を返す
             return color;
         }
         else

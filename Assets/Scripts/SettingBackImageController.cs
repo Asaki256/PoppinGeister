@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class SettingBackImageController : MonoBehaviour,IPointerClickHandler
 {
     [SerializeField] private AnimatedSettingController animatedSettingController;
-    // パネルクリック時にClose()呼び出す
+    // パネルクリック時にCloseメソッドを呼び出す
     public void OnPointerClick(PointerEventData pointerData){
         animatedSettingController.Close();
     }

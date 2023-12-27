@@ -13,9 +13,7 @@ public class UnitMovedController : MonoBehaviour
     GameObject moved_tile_prefab;
     [SerializeField]
     GameObject moved_arrow_prefab;
-    
     #endregion
-    
     
     #region Private Fields
     int[,] initMovedData = new int[,]
@@ -27,16 +25,13 @@ public class UnitMovedController : MonoBehaviour
         { 0,1,1,1,1,0 },
         { 0,1,1,1,1,0 },
     };
-    
     List<GameObject>[,] movedUnitData;
-
     float old_x;
     float old_y;
     Vector2 old_2vec;
     float moved_x;
     float moved_y;
     Vector2 moved_2vec;
-
     float arrow_x;
     float arrow_y;
     #endregion
@@ -49,18 +44,11 @@ public class UnitMovedController : MonoBehaviour
     }
     #endregion
     
-    
     #region Public Methods
-    // 棋譜の初期化。
+    // 棋譜初期化メソッド
     public void initMoved()
     {
         movedUnitData = new List<GameObject>[6,6];
-
-        // すでに存在している子オブジェクトを削除
-        // GameObject[] childObj = GameObject.FindGameObjectsWithTag("movedUnit");
-        // foreach(GameObject child in childObj){
-        //     Destroy(child);
-        // }
 
         // タイルの配置
         for(int i=0; i<6; i++){
@@ -69,10 +57,8 @@ public class UnitMovedController : MonoBehaviour
                 float y = -125 + (j * 50);
                 GameObject child = Instantiate(moved_tile_prefab, new Vector3(x,y,0), Quaternion.identity);
                 child.transform.SetParent(this.transform, false);
-                // child.transform.SetParent(this.transform, true);
             }
         }
-
         
         for(int i=0; i<6; i++){
             for(int j=0; j<6; j++){
@@ -90,24 +76,14 @@ public class UnitMovedController : MonoBehaviour
                     if(moved_instance != null){
                         movedUnitData[j,i].Add(moved_instance);
                     }
-
-                    // child.name = "Moved_Pink"+ (j+1) + (i+1);
-                    // movedUnitData[j,i].Add(child);
                 }else if(initMovedData[j, i] == 1){
                     GameObject moved_instance = Instantiate(moved_blue_prefab, new Vector3(x,y,0), Quaternion.identity);
                     moved_instance.transform.SetParent(this.transform, false);
 
-                    // if(movedUnitData[j,i] == null){
-                    //     movedUnitData[j,i] = new List<GameObject>();
-                    // }
-
                     if(moved_instance != null){
                         movedUnitData[j,i].Add(moved_instance);
                     }
-                    // child.name = "Moved_Blue"+ (j+1) + (i+1);
-                    // movedUnitData[j,i].Add(child);
                 }
-                
             }
         }
 
@@ -147,14 +123,6 @@ public class UnitMovedController : MonoBehaviour
         moved_y = 125 - ((to_y) * 50);
         moved_2vec = new Vector2(moved_x,moved_y);
 
-        // if(nowTurn == 0)
-        // {
-            // これは良くない。名前の指定方法がおかしい。
-            // 配列に現状の盤面を格納。その配列のGameObjectを削除するようにする。
-            // Destroy(GameObject.Find("Moved_Blue"+(from_y+1)+(from_x+1)));
-
-            // GameObject moved_instance = Instantiate(moved_blue_prefab, new Vector3(moved_x,moved_y,0), Quaternion.identity);
-
         if(movedUnitData[from_y,from_x] != null && movedUnitData[to_y,to_x] != null){
             if(movedUnitData[to_y,to_x].Count == 0
             && movedUnitData[from_y,from_x].Count != 0){
@@ -179,30 +147,10 @@ public class UnitMovedController : MonoBehaviour
                 movedUnitData[from_y,from_x].Clear();
             }
         }
-            // 位置ずれが起きたら下記が怪しい。
-            // child.transform.SetParent(this.transform, false);
-            // child.name = "Moved_Blue"+ (to_y+1) + (to_x+1);
-        // }
-        // else if(nowTurn == 1)
-        // {
-        //     Destroy(GameObject.Find("Moved_Pink"+(from_y+1)+(from_x+1)));
-
-        //     GameObject child = Instantiate(moved_pink_prefab, new Vector3(moved_x,moved_y,0), Quaternion.identity);
-        //     child.transform.SetParent(this.transform, false);
-        //     child.name = "Moved_Pink"+ (to_y+1) + (to_x+1);
-        // }
-        
-        // 矢印Imageの削除と表示
-        // GameObject[] arrowObj = GameObject.FindGameObjectsWithTag("movedArrow");
-        // foreach(GameObject arrow in arrowObj){
-        //     Destroy(arrow);
-        // }
         if(!arrow_instance.activeSelf){
             arrow_instance.SetActive(true);
         }
 
-        // arrow_x = -125 + (((from_x+to_x)/2) * 50);
-        // arrow_y = 125 + (((from_y+to_y)/2) * 50);
         arrow_x = (old_x + moved_x)/2;
         arrow_y = (old_y + moved_y)/2;
         
@@ -223,7 +171,6 @@ public class UnitMovedController : MonoBehaviour
         Transform tf =  this.transform;
         tf.Rotate(0f,0f,180f);
     }
-
     #endregion
 
 }
