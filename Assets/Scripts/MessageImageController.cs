@@ -7,7 +7,6 @@ using TMPro;
 
 public class MessageImageController : MonoBehaviour
 {
-
     Color32 white_color = new Color32(255,255,255,255);
     GameObject[] childBars;
     TextMeshProUGUI childText;
@@ -16,9 +15,6 @@ public class MessageImageController : MonoBehaviour
     [SerializeField]
     private float moveXPosition = 200f;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
         childBars = GameObject.FindGameObjectsWithTag("MessageImage_bar");

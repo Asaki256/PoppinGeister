@@ -9,7 +9,8 @@ using DG.Tweening;
 public class GameDirector : MonoBehaviour
 {
     //プレイヤー
-    public bool[] isPlayer;//プレイヤーの時はisPlayer[0]がtrueになる
+    //プレイヤーの時はisPlayer[0]がtrueになる
+    public bool[] isPlayer;
     Player[] player;
     int nowTurn;
 
@@ -91,19 +92,9 @@ public class GameDirector : MonoBehaviour
     GameObject btnTurnChange;
     GameObject txtInfo;
     GameObject objCamera;
-    // GameObject dispImage;
-    // TextMeshProUGUI dispText;
-
-    // GameObject startText;
     GameObject canvasObj;
     TextMeshProUGUI turnText;
-    // RectTransform startImageRect;
-    // RectTransform startTextRect;
-
-    // bool heightUpFlag;
-    // float startTextHeight;
     public AnimationCurve startCurve;
-    // float startTime;
     string p1unitname = "";
     string p2unitname = "";
     int p1unit = 0;//Unitが今何番めのカウントなのか
@@ -119,7 +110,6 @@ public class GameDirector : MonoBehaviour
     bool st_nextTurnFlag = false;
     bool st_firstFlag1 = true;
     bool st_firstFlag2 = true;
-    // bool dispTextFirstFlag = true;
     GameObject st_changeUnit0 = null;
     GameObject st_changeUnit1 = null;
     bool firstUserChange = true;
@@ -149,29 +139,15 @@ public class GameDirector : MonoBehaviour
         btnTurnEnd = canvasObj.transform.Find("OkButton").gameObject;
         btnMoveCancel = canvasObj.transform.Find("CancelButton").gameObject;
         btnTurnChange = canvasObj.transform.Find("TurnChangeButton").gameObject;
-        //ゲーム開始時のテキスト関連
-        // dispImage = canvasObj.transform.Find("GameStartImage").gameObject;
-        // dispText = dispImage.transform.Find("GameStartText").gameObject.GetComponent<TextMeshProUGUI>();
         btnUnitChangeComp = canvasObj.transform.Find("ChangeCompButton").gameObject;
-        // startText = dispImage.transform.Find("GameStartText").gameObject;
         turnText = GameObject.Find("TurnText").GetComponent<TextMeshProUGUI>();
         turnText.text = "";
         btnUserChange = canvasObj.transform.Find("UserChangeButton").gameObject;
-
-
-        // heightUpFlag = true;
-        // startTextHeight = 40;
-        // startTime = 0.0f;
-
-        // startImageRect = dispImage.GetComponent<RectTransform>();
-        // startTextRect = startText.GetComponent<RectTransform>();
         txtInfo.GetComponent<TextMeshProUGUI>().text = "";
 
         //ユニットとフィールドを作成
         List<int> p1rnd = getRandomList(UNIT_MAX, UNIT_MAX / 2);
         List<int> p2rnd = getRandomList(UNIT_MAX, UNIT_MAX / 2);
-        //int p1unit = 0;//Unitが今何番めのカウントなのか
-        //int p2unit = 0;
 
         //ランダムの数値が一致した時に赤を生成
         //フィールドのサイズ分だけ現在のフィールドの状態の変数を作成
@@ -205,63 +181,12 @@ public class GameDirector : MonoBehaviour
                 resname = "Cube (" + no + ")";
 
                 resourcesInstantiate(resname, new Vector3(x, 0, y), Quaternion.identity);
-
-                // //ユニット配置
-                // unitData[i, j] = new List<GameObject>();
-
-                // //ユニットの向き(デフォルト)
-                // Vector3 angle = new Vector3(0, 0, 0);
-                // int unittype = UnitController.TYPE_CITIZEN;
-
-                // List<int> unitrnd = new List<int>();
-                // int unitnum = -1;
-                // resname = "Unit_Citizen";
-
-                // //1Pユニット配置
-                // if (1 == initUnitData[i, j])
-                // {
-                //     unitrnd = p1rnd;
-                //     unitnum = p1unit++;//何番めのユニットなのか 代入した後に+1
-                // }
-                // else if (2 == initUnitData[i, j])
-                // {
-                //     unitrnd = p2rnd;
-                //     unitnum = p2unit++;
-                //     angle.y = 180;
-                // }
-                // else
-                // {
-                //     resname = "";
-                // }
-
-                // //unitrndとunitnumが一致した時に赤を配置
-                // //unitrndにunitnumと一致する値があった場合そのindexを返す
-                // //なかった場合は-1なので、0~7までのunitnumを全て調べる
-                // if (-1 < unitrnd.IndexOf(unitnum))
-                // {
-                //     resname = "Unit_King";
-                //     unittype = UnitController.TYPE_KING;
-                // }
-
-                // GameObject unit = resourcesInstantiate(
-                //     resname,
-                //     new Vector3(x, 0.5f, y),
-                //     Quaternion.Euler(angle));
-
-                // if (null != unit)
-                // {
-                //     unit.GetComponent<UnitController>().PlayerNo = initUnitData[i, j];
-                //     unit.GetComponent<UnitController>().Type = unittype;
-
-                //     unitData[i, j].Add(unit);
-                // }
             }
         }
         nowTurn = 0;
         nextMode = MODE.START_SELECT_PRE;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isWait()) return;
@@ -296,7 +221,6 @@ public class GameDirector : MonoBehaviour
     /// </summary>
     void inputMode()
     {
-        // Debug.Log("nowMode = " + nowMode);
         if (MODE.MOVE_SELECT == nowMode)
         {
             SelectMode();
@@ -340,7 +264,6 @@ public class GameDirector : MonoBehaviour
         else if (MODE.GAME_START == nowMode)
         {
             nextMode = MODE.MOVE_SELECT;
-            // TextDispMode("Game Start", MODE.MOVE_SELECT);
         }
     }
     void physicsMode()
@@ -354,8 +277,6 @@ public class GameDirector : MonoBehaviour
     /// <param name="next">次のモード</param>
     void initMode(MODE next)
     {
-        //updateHp();
-
         if (MODE.WAIT_TURN_END == next)
         {
             btnMoveCancel.SetActive(true);
@@ -371,7 +292,6 @@ public class GameDirector : MonoBehaviour
                 {
                     y[i] = Random.Range(5, 7);
                     x[i] = Random.Range(2, 6);
-                    // Debug.Log("x(2~5):" + x[i] + " y(5~6):" + y[i]);
                 }
                 unitRandomChange(x[0], y[0], x[1], y[1]);//CPUのユニットをランダムに並び替える
             }
@@ -386,13 +306,6 @@ public class GameDirector : MonoBehaviour
         }
         else if (MODE.FIRST_SELECT == next)
         {
-            // dispImage.SetActive(false);
-            // startText.SetActive(false);
-            // heightUpFlag = true;
-            // dispTextFirstFlag = true;
-            // startTextHeight = 40;
-            // startTime = 0.0f;
-
             messageImageController.DisplayMessageImage("#5BFFA3",player[nowTurn].PlayerNo+"Pのターン");
             waitTime = 3f;
 
@@ -413,9 +326,6 @@ public class GameDirector : MonoBehaviour
 
             //Unit1 item表示
             UnitItemOnOff(1, true);
-
-            // dispImage.SetActive(true);
-            // startText.SetActive(true);
         }
         else if (MODE.MOVE_SELECT == next)
         {
@@ -424,15 +334,12 @@ public class GameDirector : MonoBehaviour
             //占い師の正面に位置している敵ユニットのアイテムを表示する
             DivinerSkill();
 
-            // dispImage.SetActive(false);
-            // startText.SetActive(false);
             btnTurnChange.SetActive(false);
             selectUnit = null;
 
             messageImageController.DisplayMessageImage("#5BFFA3",player[nowTurn].PlayerNo+"Pのターン");
             waitTime = 3f;
 
-            //DebugUnitDataCount();
             fieldUpdate();
         }
         else if (MODE.TO_1P == next)
@@ -482,8 +389,6 @@ public class GameDirector : MonoBehaviour
         //ランダム選択後の移動がおかしいかも。のちに修正必須
         if (!player[nowTurn].IsHuman)
         {
-            //Debug.Log("nowTurn is " + nowTurn);
-
             while (true)
             {
                 selectUnit = null;
@@ -495,8 +400,6 @@ public class GameDirector : MonoBehaviour
                 if (0 < unitData[oldY, oldX].Count
                     && player[nowTurn].PlayerNo == unitData[oldY, oldX][0].GetComponent<UnitController>().PlayerNo)
                 {
-                    Debug.Log("unitData[oldY, oldX].Count " + "unitData[" + oldY + "," + oldX + "] " + unitData[oldY, oldX].Count);
-
                     selectUnit = unitData[oldY, oldX][0];
                 }
 
@@ -506,12 +409,8 @@ public class GameDirector : MonoBehaviour
                     int rndx = Random.Range(0, unitData.GetLength(1));
                     int rndy = Random.Range(0, unitData.GetLength(0));
 
-                    //Debug.Log("Point1 rndy,rndx : " + rndy + "," + rndx);
-
                     if (movableTile(oldX, oldY, rndx, rndy, selectUnit.GetComponent<UnitController>().Type))
                     {
-                        //Debug.Log("Point2");
-
                         Vector3 tpos = new Vector3(rndx - (tileData.GetLength(1) / 2 - 0.5f),
                             0f, rndy - (tileData.GetLength(0) / 2 - 0.5f));
 
@@ -523,15 +422,11 @@ public class GameDirector : MonoBehaviour
                         selectUnitY = rndy;
                         selectUnitOldY = oldY;
 
-                        //Debug.Log("Point4");
-
                         break;
                     }
                 }
             }
             waitTime = 2.0f;
-
-            Debug.Log("nowTurn is " + nowTurn);
 
             nextMode = MODE.FIELD_UPDATE;
             return;
@@ -549,8 +444,6 @@ public class GameDirector : MonoBehaviour
             {
                 hitobj = hit.collider.gameObject;
             }
-
-            //print(hitobj);
         }
 
         if (null == hitobj) return;
@@ -560,8 +453,6 @@ public class GameDirector : MonoBehaviour
         //position x,yからそれぞれ配列の番号に変換
         int x = (int)(pos.x + (tileData.GetLength(1)) / 2 - 0.5f);
         int y = (int)(pos.z + (tileData.GetLength(0)) / 2 - 0.5f);
-        Debug.Log("配列番号x:"+x);
-        Debug.Log("配列番号y:"+y);
         //ユニット選択
         //配列の中身の確認
         //現在のunitData
@@ -578,7 +469,6 @@ public class GameDirector : MonoBehaviour
                 unitCon = selectUnit.GetComponent<UnitController>();
                 unitCon.Select(false);
                 unitDetailsController.DetailClose();
-                // selectUnit.GetComponent<UnitController>().Select(false);
             }
 
             selectUnit = unitData[y, x][0];//一番下のユニットなので0番を取得
@@ -603,9 +493,6 @@ public class GameDirector : MonoBehaviour
                 selectUnitOldPos = selectUnit.transform.position;
                 selectUnit.transform.position = pos;
 
-                // unitData[oldY, oldX].Clear();
-                // unitData[y, x].Add(selectUnit);
-
                 selectUnitX = x;
                 selectUnitOldX = oldX;
                 selectUnitY = y;
@@ -618,75 +505,13 @@ public class GameDirector : MonoBehaviour
 
     void fieldUpdateMode()
     {
-        // for (int i = 0; i < unitData.GetLength(0); i++)
-        // {
-        //     for (int j = 0; j < unitData.GetLength(1); j++)
-        //     {
-        //         //ゴールしてたら消す
-        //         if (1 == unitData[i, j].Count && player[nowTurn].PlayerNo * 4 == tileData[i, j])
-        //         {
-        //             //青ならば勝利
-        //             if (UnitController.TYPE_CITIZEN == unitData[i, j][0].GetComponent<UnitController>().Type)
-        //             {
-        //                 player[nowTurn].IsGoal = true;
-        //             }
-
-        //             Destroy(unitData[i, j][0]);
-        //             unitData[i, j].RemoveAt(0);
-        //         }
-
-        //         //２つ置いてあったら古いユニットを消す
-        //         if (1 < unitData[i, j].Count)
-        //         {
-        //             // //赤ならダメージ
-        //             // if (UnitController.TYPE_KING == unitData[i, j][0].GetComponent<UnitController>().Type)
-        //             // {
-        //             //     // player[nowTurn].Hp--;
-        //             //     // waitTime = 1.5f;//1.5秒待機する
-        //             // }
-        //             // //青ならスコア加算
-        //             //青を取られた場合
-        //             // else
-        //             // {
-        //             //     // player[nowTurn].Score++;//取られたプレイヤーのスコアを加算
-        //             //     // waitTime = 1.5f;
-        //             // }
-
-        //             //王が取られた場合
-        //             if (UnitController.TYPE_KING == unitData[i, j][0].GetComponent<UnitController>().Type)
-        //             {
-        //                 //王をとったプレイヤーの勝利
-        //                 // =そのターンでないプレイヤーのIsGoalフラグをtrue
-        //                 player[nowTurn].IsGoal = true;
-        //             }
-        //             else if (UnitController.TYPE_DEATH == unitData[i, j][0].GetComponent<UnitController>().Type)
-        //             {
-        //                 //死神を取られたプレイヤーの勝利
-        //                 player[getNextTurn()].IsGoal = true;
-        //             }
-
-        //             Destroy(unitData[i, j][0]);
-        //             unitData[i, j].RemoveAt(0);
-        //         }
-        //     }
-        // }
-
         nextMode = MODE.TURN_CHANGE;
     }
 
     void turnChangeMode()
     {
-        //相手の勝ち
-        // else if (1 > player[nowTurn].Hp)
-        // {
-        //     txtInfo.GetComponent<TextMeshProUGUI>().text = player[getNextTurn()].GetPlayerName() + "の勝ち！";
-        // }
-
-        // 現在のプレイヤーが動かしたユニットのNo.を保存
         atcUnitNum = selectUnit.GetComponent<UnitController>().Type;
 
-        //次がプレイヤーだったら=人間同士の場合
-        //または、手番が 人間->CPU の場合
         if ((player[nowTurn].IsHuman && player[getNextTurn()].IsHuman)
             || (player[nowTurn].IsHuman && !player[getNextTurn()].IsHuman))
         {
@@ -714,52 +539,6 @@ public class GameDirector : MonoBehaviour
         }
 
     }
-
-    // void TextDispMode(string text, MODE next)
-    // {
-    //     // StartCoroutine(showTextCoroutine());
-    //     //- 表示するテキストの変更
-    //     //- 引数としてstring型のテキストを取得
-
-    //     if (heightUpFlag)
-    //     {
-    //         //最初にテキスト設定
-    //         if (dispTextFirstFlag)
-    //         {
-    //             dispText.text = text;
-    //             dispTextFirstFlag = false;
-    //         }
-    //         startImageRect.sizeDelta = new Vector2(startImageRect.sizeDelta.x, startTextHeight);
-    //         startTextRect.sizeDelta = new Vector2(startImageRect.sizeDelta.x, startTextHeight - 40);
-    //         //startTextHeight += 10;
-    //         waitTime = 0.01f;
-    //         startTime += Time.deltaTime;
-    //         startTextHeight += 50 * startCurve.Evaluate(startTime);
-
-    //         if (startTextHeight > 200)
-    //         {
-    //             heightUpFlag = false;
-    //             waitTime = 1.5f;
-    //         }
-    //     }
-    //     else
-    //     {
-    //         startImageRect.sizeDelta = new Vector2(startImageRect.sizeDelta.x, startTextHeight);
-    //         startTextRect.sizeDelta = new Vector2(startImageRect.sizeDelta.x, startTextHeight - 40);
-    //         //startTextHeight -= 10;
-    //         waitTime = 0.01f;
-    //         startTime += Time.deltaTime;
-    //         startTextHeight -= 30 * startCurve.Evaluate(startTime);
-
-    //         if (startTextHeight < 40)
-    //         {
-    //             //turnText.text = text;//"Unit Change Turn"など
-    //             nextMode = next;
-    //         }
-    //     }
-    //     // startImageRect.sizeDelta = new Vector2(startImageRect.sizeDelta.x, 40);
-    //     // startTextRect.sizeDelta = new Vector2(startTextRect.sizeDelta.x, 40);
-    // }
 
     /// <summary>
     /// ゲーム開始時にユニットを並べるモード
@@ -789,10 +568,6 @@ public class GameDirector : MonoBehaviour
 
         //ユニットの向き(デフォルト)
         Vector3 angle = new Vector3(0, 0, 0);
-
-        //List<int> unitrnd = new List<int>();
-        //int unitnum = -1;
-        //unitname = "Unit_Citizen";
 
         //1Pユニット配置
         if (1 == initUnitData[startPreI, startPreJ])
@@ -832,7 +607,6 @@ public class GameDirector : MonoBehaviour
                     = initUnitData[startPreI, startPreJ];
                 unit.GetComponent<UnitController>().Type = p1unittype;
 
-
                 //固有アイテムの生成処理
                 GameObject item1 = (GameObject)resourcesInstantiate(
                     p1unittype + "_item",
@@ -848,11 +622,8 @@ public class GameDirector : MonoBehaviour
                 unitData[startPreI, startPreJ].Add(unit);
             }
 
-
             p1unit++;//P1のユニット番号を＋1
             waitTime = 0.5f;
-            // Debug.Log("p1x: " + p1x);
-            // Debug.Log("p1y: " + p1y);
         }
 
         if (2 == initUnitData[tileData.GetLength(1) - startPreI - 1, tileData.GetLength(0) - startPreJ - 1])
@@ -886,7 +657,6 @@ public class GameDirector : MonoBehaviour
             new Vector3(p2x, 0f, p2y),
             Quaternion.Euler(angle));
 
-
             if (null != unit)
             {
                 unit.GetComponent<UnitController>().PlayerNo
@@ -911,20 +681,8 @@ public class GameDirector : MonoBehaviour
 
             p2unit++;//P2のユニット番号を＋1
             waitTime = 0.5f;
-
-            // Debug.Log("p2x: " + p2x);
-            // Debug.Log("p2y: " + p2y);
         }
-        //     }
-        // }
 
-        // for (int i = 0; i < tileData.GetLength(0); i++)//Yの座標
-        // {
-        //     for (int j = 0; j < tileData.GetLength(1); j++)//Xの座標
-        //     {
-
-        //     }
-        // }
         if (startPreI == tileData.GetLength(1) - 1 && startPreJ == tileData.GetLength(0) - 1)
         {
             nextMode = MODE.FIRST_SELECT;
@@ -937,9 +695,6 @@ public class GameDirector : MonoBehaviour
             startPreJ = -1;
         }
         startPreJ++;
-
-        // Debug.Log("I = " + startPreI);
-        // Debug.Log("J = " + startPreJ);
     }
 
 
@@ -1001,8 +756,6 @@ public class GameDirector : MonoBehaviour
         }
 
         return Instantiate(prefab, pos, ang);
-
-        //return Instantiate(prefab, pos, ang);でも可
     }
 
     /// <summary>
@@ -1016,13 +769,6 @@ public class GameDirector : MonoBehaviour
         //TYPE_DEATH = 3;    // 死神
         //TYPE_HUNTER = 4;   // 狩人
         //TYPE_DIVINER = 5;  // 占い師
-
-        //0 or 1 or 2 or 4 or 8
-        // Debug.Log("tile y,x = " + tileData[y, x]);
-        // Debug.Log("tile y+1,x = " + tileData[y + 1, x]);
-        // Debug.Log("tile y,x+1 = " + tileData[y, x + 1]);
-        // Debug.Log("tile y-1,x = " + tileData[y - 1, x]);
-        // Debug.Log("tile y,x-1 = " + tileData[y, x - 1]);
 
         string resname = "MovableTile";
         float posX;
@@ -1224,20 +970,6 @@ public class GameDirector : MonoBehaviour
         return ret;
     }
 
-    //HPのアップデート
-    // void updateHp()
-    // {
-    //     for (int i = 0; i < player.Length; i++)
-    //     {
-    //         GameObject obj = GameObject.Find(player[i].PlayerNo + "PText");
-
-    //         if (null == obj) continue;
-    //         //string t = player[i].GetPlayerName() + "Hp : " + player[i].Hp + " Score : " + player[i].Score;
-
-    //         //obj.GetComponent<TextMeshProUGUI>().text = t;
-    //     }
-    // }
-
     //シーン再読み込み
     public void RestartScene()
     {
@@ -1303,19 +1035,11 @@ public class GameDirector : MonoBehaviour
                 
             }
 
-            //上空から赤青の印を消す
-            //foreach (GameObject obj in getUnits())
-            //{
-            //objの子オブジェクトを検索する
-            //obj.transform.Find("Sphere").gameObject.SetActive(false);
-            //}
-
             //ユニットデータ移動の確定
             unitData[selectUnitOldY, selectUnitOldX].Clear();
             unitData[selectUnitY, selectUnitX].Add(selectUnit);
             //棋譜の更新
             unitMovedController.UpdateMoved(selectUnitOldY,selectUnitOldX,selectUnitY,selectUnitX,nowTurn);
-            // unitMovedController.TurnMovedImage();
 
             fieldUpdate();
 
@@ -1398,15 +1122,8 @@ public class GameDirector : MonoBehaviour
             //ボタン表示
             btnUserChange.SetActive(true);
 
-            //ユニットの武器を非表示
-            // foreach (GameObject obj in getUnits())
-            // {
-            //objの子オブジェクトを検索する
-            //obj.transform.Find("Sphere").gameObject.SetActive(false);
             UnitItemOffAll();
-            //}
             unitDetailsController.DetailClose();
-            
 
             //テキスト表示「1Pの方は2Pの方に端末を渡してください。」
 
@@ -1418,11 +1135,7 @@ public class GameDirector : MonoBehaviour
         {
             objCamera.transform.position = new Vector3(0, 5, 5);
             objCamera.transform.eulerAngles = new Vector3(50, 180, 0);
-            // foreach (GameObject obj in getUnits())
-            // {
-            //     //objの子オブジェクトを検索する
-            //     //obj.transform.Find("Sphere").gameObject.SetActive(true);
-            // }
+
             //ボタン非表示
             btnUserChange.SetActive(false);
             userChangeFlag = false;
@@ -1436,8 +1149,6 @@ public class GameDirector : MonoBehaviour
         userChangeFlag = true;
     }
 
-
-
     void secondSelectMode()
     {
         //1Pでの並び替えを2Pができるように修正。
@@ -1450,8 +1161,7 @@ public class GameDirector : MonoBehaviour
             objCamera.transform.position = new Vector3(0, 9, 0);
             objCamera.transform.eulerAngles = new Vector3(90, 180, 0);
 
-            nextMode = MODE.TO_1P;//ここを変更する
-            // int oldturn = nowTurn;
+            nextMode = MODE.TO_1P;
             nowTurn = getNextTurn();
             return;
         }
@@ -1483,12 +1193,6 @@ public class GameDirector : MonoBehaviour
         }
         unitData[y0, x0].Clear();
         unitData[y1, x1].Clear();
-        //unitData内のunitの位置を交換
-
-        //Debug.Log(unitData[y1, x1][0].transform.position);
-        // Debug.Log(st_UnitList[0].transform.position);
-        // Debug.Log(unitData[y2, x2][0].transform.position);
-        // Debug.Log(st_UnitList[1].transform.position);
 
         Vector3 tmpUnit0Pos = unit0.transform.position;
         unit0.transform.position = unit1.transform.position;
@@ -1516,12 +1220,9 @@ public class GameDirector : MonoBehaviour
     {
         if (!st_selectFlag1 && !st_selectFlag2)
         {
-            //自身の8unitを選択できる その位置に選択可能タイルを表示(黄色)
-            //nowturn
-            //player[nowTurn].PlayerNo == unitData[y, x][0].GetComponent<UnitController>().PlayerNo
             if (st_firstFlag1)
             {
-                //for分で黄色タイル配置
+                //黄色タイル配置
                 for (int i = 0; i < tileData.GetLength(0); i++)// Y
                 {
                     for (int j = 0; j < tileData.GetLength(1); j++)// X
@@ -1543,7 +1244,6 @@ public class GameDirector : MonoBehaviour
 
             //ユニット選択処理
             GameObject hitobj = null;
-
             if (Input.GetMouseButtonUp(0))
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -1553,10 +1253,7 @@ public class GameDirector : MonoBehaviour
                 {
                     hitobj = hit.collider.gameObject;
                 }
-
-                //Debug.Log(hitobj);
             }
-
             if (null == hitobj) return;
 
             Vector3 pos = hitobj.transform.position;
@@ -1588,7 +1285,7 @@ public class GameDirector : MonoBehaviour
             //一つ目に加えてそれ以外の二つ目のユニットが選択されている場合＝選択フラグ1true 2true
             if (st_firstFlag2)
             {
-                //for分で黄色タイル配置
+                // 黄色タイル配置
                 for (int i = 0; i < tileData.GetLength(0); i++)// Y
                 {
                     for (int j = 0; j < tileData.GetLength(1); j++)// X
@@ -1622,8 +1319,6 @@ public class GameDirector : MonoBehaviour
                 {
                     hitobj = hit.collider.gameObject;
                 }
-
-                //Debug.Log(hitobj);
             }
 
             if (null == hitobj) return;
@@ -1638,11 +1333,10 @@ public class GameDirector : MonoBehaviour
 
             st_changeUnit1 = unitData[y, x][0];
 
-            ////1unitを押した場合、1,2unit=null 選択フラグ1をfalse
+            //1unitを押した場合、1,2unit=null 選択フラグ1をfalse
             if (st_changeUnit0 == st_changeUnit1)
             {
                 // オレンジタイル破壊
-                //Debug.Log("one more touch first unit.!!!!!");
                 st_changeUnit0 = null;
                 st_changeUnit1 = null;
                 st_selectFlag1 = false;
@@ -1723,14 +1417,10 @@ public class GameDirector : MonoBehaviour
             {
                 if (0 < unitData[i, j].Count)
                 {
-                    // Debug.Log("unit[" + i + "," + j + "] item Off");
                     //親オブジェクトの子の中から最後のインデックスの子を取り出す
                     //この処理の方がFindよりもパフォーマンス良さそう
                     GameObject item = unitData[i, j][0].transform.GetChild(unitData[i, j][0].transform.childCount - 1).gameObject;
                     if (item == null) continue;
-                    //string itemStr = item.name.Remove(0, 2);//itemの名前を先頭から２文字削除する
-                    // Debug.Log("itemname : " + itemStr);
-                    // if (itemStr.Equals("item")) continue;//itemかどうかのチェック
 
                     item.SetActive(false);
                 }
@@ -1746,14 +1436,10 @@ public class GameDirector : MonoBehaviour
             {
                 if (0 < unitData[i, j].Count)
                 {
-                    // Debug.Log("unit[" + i + "," + j + "] item Off");
                     //親オブジェクトの子の中から最後のインデックスの子を取り出す
                     //この処理の方がFindよりもパフォーマンス良さそう
                     GameObject item = unitData[i, j][0].transform.GetChild(unitData[i, j][0].transform.childCount - 1).gameObject;
                     if (item == null) continue;
-                    //string itemStr = item.name.Remove(0, 2);//itemの名前を先頭から２文字削除する
-                    // Debug.Log("itemname : " + itemStr);
-                    // if (itemStr.Equals("item")) continue;//itemかどうかのチェック
 
                     if (item.activeSelf == false)
                     {
@@ -1776,14 +1462,10 @@ public class GameDirector : MonoBehaviour
             {
                 if (0 < unitData[i, j].Count && unitNum == unitData[i, j][0].GetComponent<UnitController>().PlayerNo)
                 {
-                    // Debug.Log("unit[" + i + "," + j + "] item Off");
                     //親オブジェクトの子の中から最後のインデックスの子を取り出す
                     //この処理の方がFindよりもパフォーマンス良さそう
                     GameObject item = unitData[i, j][0].transform.GetChild(unitData[i, j][0].transform.childCount - 1).gameObject;
                     if (item == null) continue;
-                    // string itemStr = item.name.Remove(0, 2);//itemの名前を先頭から２文字削除する
-                    // Debug.Log("itemname : " + itemStr);
-                    //if (itemStr.Equals("item")) continue;//itemかどうかのチェック
 
                     item.SetActive(isSet);
                 }
@@ -1813,24 +1495,11 @@ public class GameDirector : MonoBehaviour
                 if (UnitController.TYPE_DIVINER == unitCntr.Type
                  && nowTurn + 1 == unitCntr.PlayerNo)
                 {
-                    // //占い師ユニットの位置を配列番号に変換
-                    // int x = (int)(unitData[i,j][0].transform.position.x + (tileData.GetLength(1)) / 2 - 0.5f);
-                    // int y = (int)(unitData[i,j][0].transform.position.z + (tileData.GetLength(0)) / 2 - 0.5f);
-                    // if (0 < unitData[i - 1, j].Count)
-                    // {
-                    //     Debug.Log("y-1 PNum : " + unitData[i - 1, j][0].GetComponent<UnitController>().PlayerNo);
-                    // }
-                    // else if (0 < unitData[i + 1, j].Count)
-                    // {
-                    //     Debug.Log("y+1 PNum : " + unitData[i + 1, j][0].GetComponent<UnitController>().PlayerNo);
-                    // }
-
                     //占い師ユニットが1Pかつ正面のy+1配列に敵ユニット(2P)がいる場合、そのユニットのアイテムを表示
                     if (1 == unitCntr.PlayerNo
                      && 0 < unitData[i + 1, j].Count
                      && 2 == unitData[i + 1, j][0].GetComponent<UnitController>().PlayerNo)
                     {
-                        //Debug.Log("P1 Diviner's Skill");
                         GameObject item = unitData[i + 1, j][0].transform.GetChild(unitData[i + 1, j][0].transform.childCount - 1).gameObject;
                         if (item == null) continue;
                         item.SetActive(true);
@@ -1840,7 +1509,6 @@ public class GameDirector : MonoBehaviour
                      && 0 < unitData[i - 1, j].Count
                      && 1 == unitData[i - 1, j][0].GetComponent<UnitController>().PlayerNo)
                     {
-                        //Debug.Log("P2 Diviner's Skill");
                         GameObject item = unitData[i - 1, j][0].transform.GetChild(unitData[i - 1, j][0].transform.childCount - 1).gameObject;
                         if (item == null) continue;
                         item.SetActive(true);
@@ -1861,7 +1529,6 @@ public class GameDirector : MonoBehaviour
     //ユニットデータ変更の確定を、ターン変更時に行う。
     //ターン変更が押される前にキャンセルボタンが押された場合、
     //その時点ではユニットデータは変更されずにユニットの位置を元に戻す。
-
     void fieldUpdate()
     {
         for (int i = 0; i < unitData.GetLength(0); i++)
@@ -1876,9 +1543,6 @@ public class GameDirector : MonoBehaviour
                     {
                         player[nowTurn].IsGoal = true;
                     }
-
-                    // Destroy(unitData[i, j][0]);
-                    // unitData[i, j].RemoveAt(0);
                 }
 
                 //２つ置いてあったら古いユニットを消す
@@ -1911,23 +1575,8 @@ public class GameDirector : MonoBehaviour
         nextMode = MODE.NONE;
 
         //現在のターンのプレイヤー
-        if (player[nowTurn].IsGoal/* || 4 <= player[nowTurn].Score*/)
+        if (player[nowTurn].IsGoal)
         {
-            // if(nowTurn == 0){
-            //     // 青の勝ち
-            //     txtInfo.GetComponent<TextMeshProUGUI>().text = player[nowTurn].GetPlayerName() + "(青)の勝ち！";
-            // }
-            // else if(nowTurn == 1){
-            //     // 赤の勝ち
-            //     txtInfo.GetComponent<TextMeshProUGUI>().text = player[nowTurn].GetPlayerName() + "(赤)の勝ち！";
-            // // }
-
-            // Debug.Log(player[nowTurn].PlayerNo);
-            // Debug.Log(player[nowTurn].PlayerNo);
-            // Debug.Log(player[getNextTurn()].PlayerNo);
-            // Debug.Log(atcUnitNum);
-            // Debug.Log(difUnitNum);
-
             // 勝敗演出表示 
             resultImageController.DisplayResultImage(player[nowTurn].PlayerNo, player[nowTurn].PlayerNo, player[getNextTurn()].PlayerNo, atcUnitNum, difUnitNum);
 
@@ -1936,13 +1585,6 @@ public class GameDirector : MonoBehaviour
         //次のターンのプレイヤー
         else if (player[getNextTurn()].IsGoal)
         {
-            // if(getNextTurn() == 0){
-            //     txtInfo.GetComponent<TextMeshProUGUI>().text = player[getNextTurn()].GetPlayerName() + "(青)の勝ち！";
-            // }
-            // else if(getNextTurn() == 1){
-            //     txtInfo.GetComponent<TextMeshProUGUI>().text = player[getNextTurn()].GetPlayerName() + "(赤)の勝ち！";
-            // }
-
             resultImageController.DisplayResultImage(player[getNextTurn()].PlayerNo,player[nowTurn].PlayerNo,player[getNextTurn()].PlayerNo, atcUnitNum, difUnitNum);
 
             UnitItemOnAll();

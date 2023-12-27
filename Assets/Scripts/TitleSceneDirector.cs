@@ -199,8 +199,6 @@ public class TitleSceneDirector : MonoBehaviour
         }
 
         return Instantiate(prefab, pos, ang);
-
-        //return Instantiate(prefab, pos, ang);でも可
     }
 
     List<int> getRandomList(int range, int count)
@@ -345,8 +343,6 @@ public class TitleSceneDirector : MonoBehaviour
             {
                 hitobj = hit.collider.gameObject;
             }
-
-            //print(hitobj);
         }
 
         if (null == hitobj) return;
@@ -389,8 +385,6 @@ public class TitleSceneDirector : MonoBehaviour
                 nextMode = MODE.FIELD_UPDATE;
             }
         }
-
-
     }
 
     void fieldUpdateMode()
@@ -424,7 +418,6 @@ public class TitleSceneDirector : MonoBehaviour
                     //青ならスコア加算
                     else
                     {
-                        //player[nowTurn].Score++;
                         waitTime = 1.5f;
                     }
 
@@ -439,20 +432,6 @@ public class TitleSceneDirector : MonoBehaviour
 
     void turnChangeMode()
     {
-        nextMode = MODE.NONE;
-
-        //自分の勝ち
-        // if (player[nowTurn].IsGoal || 4 <= player[nowTurn].Score)
-        // {
-        // }
-        // //相手の勝ち
-        // else if (1 > player[nowTurn].Hp)
-        // {
-        // }
-        // //次のターンへ
-        // else
-
-        //{
         nextMode = MODE.MOVE_SELECT;
 
         int oldturn = nowTurn;
@@ -463,7 +442,6 @@ public class TitleSceneDirector : MonoBehaviour
         {
             nextMode = MODE.WAIT_TURN_END;
         }
-        //}
     }
 
     //そこへ移動可能かどうか=今の場所から一ます分離れているかの判定
