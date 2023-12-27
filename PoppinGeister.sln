@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsedCharEnumerator", "UsedCharEnumerator.csproj", "{0f3a2708-5cf6-986e-7901-cbc5e6ed542f}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{074b5300-ecbc-9fdc-c46b-e4fb1e49ca22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{98c8cac3-370c-b7c7-1a19-fb21f12b5b24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsedCharEnumerator.Tests", "UsedCharEnumerator.Tests.csproj", "{28bcc615-4327-fdad-b30a-97d40206501f}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsedCharEnumerator.Editor", "UsedCharEnumerator.Editor.csproj", "{fcae0b50-ac86-9532-5b70-22557d7c895d}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0f3a2708-5cf6-986e-7901-cbc5e6ed542f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0f3a2708-5cf6-986e-7901-cbc5e6ed542f}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{074b5300-ecbc-9fdc-c46b-e4fb1e49ca22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{074b5300-ecbc-9fdc-c46b-e4fb1e49ca22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98c8cac3-370c-b7c7-1a19-fb21f12b5b24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98c8cac3-370c-b7c7-1a19-fb21f12b5b24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28bcc615-4327-fdad-b30a-97d40206501f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28bcc615-4327-fdad-b30a-97d40206501f}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{fcae0b50-ac86-9532-5b70-22557d7c895d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{fcae0b50-ac86-9532-5b70-22557d7c895d}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
