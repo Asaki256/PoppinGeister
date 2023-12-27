@@ -72,9 +72,6 @@ public class CameraController : MonoBehaviour
     //             Input.GetAxis("Mouse Y") * this.rotateSpeed,
     //             0
     //         );
-    //     // Debug.Log("mouse x: " + Input.GetAxis("Mouse X"));
-    //     // Debug.Log("mouse y: " + Input.GetAxis("Mouse Y"));
-
     //     this.transform.RotateAround(this.fieldObject.transform.position, Vector3.up, angle.x);
 
     // }

@@ -46,7 +46,6 @@ public class MovableTile : MonoBehaviour
             }
 
             mesh.material.color = new Color(r, g, b, alphaNum);
-            //Debug.Log(mesh.material.color);
 
             yield return new WaitForSeconds(0.01f);
         }

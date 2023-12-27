@@ -86,19 +86,10 @@ public class UnitMovedController : MonoBehaviour
                 if(initMovedData[j, i] == 2){
                     GameObject moved_instance = Instantiate(moved_pink_prefab, new Vector3(x,y,0), Quaternion.identity);
                     moved_instance.transform.SetParent(this.transform, false);
-                    
-                    //0~5
-                    Debug.Log("j:"+j+", i:"+i);
-                    Debug.Log("moved_instance"+moved_instance);
-                    Debug.Log("movedUnitData: "+movedUnitData[j,i]);
-                    // if(movedUnitData[j,i] == null){
-                    //     movedUnitData[j,i] = new List<GameObject>();
-                    // }
 
                     if(moved_instance != null){
                         movedUnitData[j,i].Add(moved_instance);
                     }
-                    Debug.Log("create pink movedUnit at x:"+i+", y:"+j);
 
                     // child.name = "Moved_Pink"+ (j+1) + (i+1);
                     // movedUnitData[j,i].Add(child);
@@ -164,8 +155,6 @@ public class UnitMovedController : MonoBehaviour
 
             // GameObject moved_instance = Instantiate(moved_blue_prefab, new Vector3(moved_x,moved_y,0), Quaternion.identity);
 
-        Debug.Log("fx:"+ from_x +"fy:"+ from_y+"tx:"+ to_x +"ty:"+ to_y);
-
         if(movedUnitData[from_y,from_x] != null && movedUnitData[to_y,to_x] != null){
             if(movedUnitData[to_y,to_x].Count == 0
             && movedUnitData[from_y,from_x].Count != 0){
@@ -175,7 +164,6 @@ public class UnitMovedController : MonoBehaviour
                 //リスト更新
                 movedUnitData[to_y,to_x].Add(movedUnitData[from_y,from_x][0]);
                 movedUnitData[from_y,from_x].Clear();
-                Debug.Log("Unit Moved.");
             }else if(movedUnitData[to_y,to_x].Count != 0
             && movedUnitData[from_y,from_x].Count != 0){
                 //撃破した敵のユニットを削除
