@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//MonoBehaviorはGameObjectにアタッチするためのクラス。今回は通常のクラスとしてのみ扱うので、必要ない
+//MonoBehaviourはGameObjectにアタッチするためのクラス。今回は通常のクラスとしてのみ扱うので、必要ない
 public class Player
 {
     public bool IsHuman;//プレイヤーが人間かどうか

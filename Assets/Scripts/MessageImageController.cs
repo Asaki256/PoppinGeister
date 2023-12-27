@@ -7,7 +7,7 @@ using TMPro;
 
 public class MessageImageController : MonoBehaviour
 {
-    Color32 white_color = new Color32(255,255,255,255);
+    Color32 white_color = new Color32(255, 255, 255, 255);
     GameObject[] childBars;
     TextMeshProUGUI childText;
     RectTransform rectTransform;
@@ -31,7 +31,8 @@ public class MessageImageController : MonoBehaviour
 
         // 色変更（引数を元に）
         Color color = GetColor(colorCode);
-        foreach(var childBar in childBars){
+        foreach (var childBar in childBars)
+        {
             childBar.GetComponent<Image>().color = color;
         }
 
@@ -40,7 +41,7 @@ public class MessageImageController : MonoBehaviour
 
         // アニメーション
         canvasGroup.alpha = 0f;
-        rectTransform.anchoredPosition = new Vector2(moveXPosition*(-1), 0);
+        rectTransform.anchoredPosition = new Vector2(moveXPosition * (-1), 0);
         var sequence = DOTween.Sequence();
         sequence.Append(canvasGroup.DOFade(1f, 0.5f))
             .Join(rectTransform.DOAnchorPos(new Vector2(0, 0), 0.5f))
@@ -56,12 +57,12 @@ public class MessageImageController : MonoBehaviour
         Color color = default(Color);
         if (ColorUtility.TryParseHtmlString(colorCode, out color))
         {
-           //Colorを生成できたらそれを返す
+            //Colorを生成できたらそれを返す
             return color;
         }
         else
-        { 
-           //失敗した場合は白を返す
+        {
+            //失敗した場合は白を返す
             return white_color;
         }
     }

@@ -30,7 +30,6 @@ public class UnitController : MonoBehaviour
             transform.position.x,
             SELECT_POS_Y,
             transform.position.z);
-            
 
         if (!select)//非選択の場合、位置をデフォルトに戻す
         {

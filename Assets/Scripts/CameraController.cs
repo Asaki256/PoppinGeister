@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private float maxAngle = 45;
     private Vector3 totalAngle = Vector3.zero;
     private GameObject fieldObject;
     [SerializeField]

@@ -13,12 +13,12 @@ public class AnimatedSettingController : MonoBehaviour
     // アニメーターコントローラー内で定義したフラグ
     private static readonly int ParamIsOpen = Animator.StringToHash("IsOpen");
     public bool IsOpen => gameObject.activeSelf;
-    public bool IsTransition{get; private set;}
+    public bool IsTransition { get; private set; }
 
     public void Open()
     {
         // 不正操作防止
-        if(IsOpen || IsTransition) return;
+        if (IsOpen || IsTransition) return;
         // パネルアクティブ
         gameObject.SetActive(true);
         // ISOpenフラグセット
@@ -30,18 +30,18 @@ public class AnimatedSettingController : MonoBehaviour
     public void Close()
     {
         // 不正操作防止
-        if(!IsOpen || IsTransition) return;
+        if (!IsOpen || IsTransition) return;
         // IsOpenフラグクリア
         _animator.SetBool(ParamIsOpen, false);
         // アニメーション待機、終了後パネル非アクティブ
-        StartCoroutine(WaitAnimation("Hidden",()=>gameObject.SetActive(false)));
+        StartCoroutine(WaitAnimation("Hidden", () => gameObject.SetActive(false)));
     }
 
     private IEnumerator WaitAnimation(string stateName, UnityAction onCompleted = null)
     {
         IsTransition = true;
 
-        yield return new WaitUntil(()=>
+        yield return new WaitUntil(() =>
         {
             // ステート変化後、アニメーション終了までループ
             var state = _animator.GetCurrentAnimatorStateInfo(_layer);

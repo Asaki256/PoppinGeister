@@ -117,7 +117,7 @@ public class GameDirector : MonoBehaviour
     Vector3 selectUnitOldPos;
     int selectUnitX = 0, selectUnitOldX = 0,
         selectUnitY = 0, selectUnitOldY = 0;
-    
+
     [SerializeField]
     UnitMovedController unitMovedController;
     [SerializeField]
@@ -306,14 +306,14 @@ public class GameDirector : MonoBehaviour
         }
         else if (MODE.FIRST_SELECT == next)
         {
-            messageImageController.DisplayMessageImage("#5BFFA3",player[nowTurn].PlayerNo+"Pのターン");
+            messageImageController.DisplayMessageImage("#5BFFA3", player[nowTurn].PlayerNo + "Pのターン");
             waitTime = 3f;
 
             btnUnitChangeComp.SetActive(true);
         }
         else if (MODE.SECOND_SELECT == next)
         {
-            messageImageController.DisplayMessageImage("#5BFFA3",player[nowTurn].PlayerNo+"Pのターン");
+            messageImageController.DisplayMessageImage("#5BFFA3", player[nowTurn].PlayerNo + "Pのターン");
             waitTime = 3f;
 
             UnitItemOnOff(2, true);
@@ -321,7 +321,7 @@ public class GameDirector : MonoBehaviour
         }
         else if (MODE.GAME_START == next)
         {
-            messageImageController.DisplayMessageImage("#FFAF40","GAME START!");
+            messageImageController.DisplayMessageImage("#FFAF40", "GAME START!");
             waitTime = 5f;
 
             //Unit1 item表示
@@ -337,7 +337,7 @@ public class GameDirector : MonoBehaviour
             btnTurnChange.SetActive(false);
             selectUnit = null;
 
-            messageImageController.DisplayMessageImage("#5BFFA3",player[nowTurn].PlayerNo+"Pのターン");
+            messageImageController.DisplayMessageImage("#5BFFA3", player[nowTurn].PlayerNo + "Pのターン");
             waitTime = 3f;
 
             fieldUpdate();
@@ -526,7 +526,7 @@ public class GameDirector : MonoBehaviour
             unitData[selectUnitY, selectUnitX].Add(selectUnit);
             //棋譜の更新
             unitMovedController.TurnMovedImage();
-            unitMovedController.UpdateMoved(selectUnitOldY,selectUnitOldX,selectUnitY,selectUnitX,nowTurn);
+            unitMovedController.UpdateMoved(selectUnitOldY, selectUnitOldX, selectUnitY, selectUnitX, nowTurn);
             unitMovedController.TurnMovedImage();
 
             nextMode = MODE.GAME_JUDGE;
@@ -1025,21 +1025,24 @@ public class GameDirector : MonoBehaviour
             if (player[nowTurn].IsHuman && player[getNextTurn()].IsHuman)
             {
                 // 真上にカメラセット（プレイヤーごとに異なる角度）
-                if(nowTurn == 0){
+                if (nowTurn == 0)
+                {
                     objCamera.transform.position = new Vector3(0, 9, 0);
                     objCamera.transform.eulerAngles = new Vector3(90, 0, 0);
-                }else if(nowTurn == 1){
+                }
+                else if (nowTurn == 1)
+                {
                     objCamera.transform.position = new Vector3(0, 9, 0);
                     objCamera.transform.eulerAngles = new Vector3(90, 180, 0);
                 }
-                
+
             }
 
             //ユニットデータ移動の確定
             unitData[selectUnitOldY, selectUnitOldX].Clear();
             unitData[selectUnitY, selectUnitX].Add(selectUnit);
             //棋譜の更新
-            unitMovedController.UpdateMoved(selectUnitOldY,selectUnitOldX,selectUnitY,selectUnitX,nowTurn);
+            unitMovedController.UpdateMoved(selectUnitOldY, selectUnitOldX, selectUnitY, selectUnitX, nowTurn);
 
             fieldUpdate();
 
@@ -1273,8 +1276,8 @@ public class GameDirector : MonoBehaviour
                 DestroyTiles("SelectableTile");
                 st_selectFlag1 = true;
                 // ユニット説明パネル表示
-                unitDetailsController.DetailOpen(unitData[y,x][0].GetComponent<UnitController>().Type);
-                
+                unitDetailsController.DetailOpen(unitData[y, x][0].GetComponent<UnitController>().Type);
+
                 return;
             }
         }
@@ -1585,7 +1588,7 @@ public class GameDirector : MonoBehaviour
         //次のターンのプレイヤー
         else if (player[getNextTurn()].IsGoal)
         {
-            resultImageController.DisplayResultImage(player[getNextTurn()].PlayerNo,player[nowTurn].PlayerNo,player[getNextTurn()].PlayerNo, atcUnitNum, difUnitNum);
+            resultImageController.DisplayResultImage(player[getNextTurn()].PlayerNo, player[nowTurn].PlayerNo, player[getNextTurn()].PlayerNo, atcUnitNum, difUnitNum);
 
             UnitItemOnAll();
         }

@@ -8,8 +8,9 @@ public class UnitDetailsController : MonoBehaviour
     private int activeUnitType = -1;
 
     // ユニットの詳細ポップアップ表示メソッド
-    public void DetailOpen(int unitType){
-        switch(unitType)
+    public void DetailOpen(int unitType)
+    {
+        switch (unitType)
         {
             case UnitController.TYPE_CITIZEN:
                 unitDetail = this.transform.Find("CitizenDetail").gameObject;
@@ -32,13 +33,15 @@ public class UnitDetailsController : MonoBehaviour
     }
 
     // ユニットの詳細ポップアップ非表示メソッド
-    public void DetailClose(){
-        if(unitDetail == null) return;
+    public void DetailClose()
+    {
+        if (unitDetail == null) return;
         unitDetail.SetActive(false);
     }
 
     //必要そうなら実装する
-    public void DetailCloseAll(){
+    public void DetailCloseAll()
+    {
 
     }
 }
