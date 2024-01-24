@@ -78,7 +78,6 @@ extern void MessageImageController_GetColor_mD5B30747622AB173D8E25CEF135611CB2FD
 extern void MessageImageController__ctor_m8FC280EB4EDFCD7396F82D8BFCB88A8EF665A01D (void);
 extern void MovableTile_Start_m118724A28BD1544ED11AB738711CA2F961D18292 (void);
 extern void MovableTile_AlphaChange_m672B329C8ED8D2C8F04CE7532A07327CCAABA201 (void);
-extern void MovableTile_Update_mC23B8A24E557B5D8DECCF6903F21FD22E6083DB6 (void);
 extern void MovableTile__ctor_mA3C9765E7E8B9FE93BD9FCBC1CDF0DA3D39D1DCF (void);
 extern void U3CAlphaChangeU3Ed__8__ctor_m7C45C5351596693F4FD67DEC169E9EFC3017CDF0 (void);
 extern void U3CAlphaChangeU3Ed__8_System_IDisposable_Dispose_m9ECD5D5CBA5DC0810693CC8A89EEFDF47CD86F1D (void);
@@ -99,6 +98,17 @@ extern void ResultImageController_GetUnitName_m7550CC5AEE758D9365C6AC7035A8FC244
 extern void ResultImageController__ctor_mBF6AE6B58E43515A9315AF6AF55412FB8E457FE3 (void);
 extern void SettingBackImageController_OnPointerClick_m15216BCBD655FAE0ED82F404FEC961E96CBC0E90 (void);
 extern void SettingBackImageController__ctor_mA338F61C3C6815766826F13F1BDC72F2DA74D17E (void);
+extern void UnitController_Select_mC3AB4EF63E2D5C7E8D88ED869BA27CC0472AD72A (void);
+extern void UnitController__ctor_m9E607883C02A139180E0506FF9C3719960A27066 (void);
+extern void UnitDetailsController_DetailOpen_mB6772179DF41091C235105980A7B8A71D42030B8 (void);
+extern void UnitDetailsController_DetailClose_m1F3D6FC7997AA9541C2C4CA6B145C479081FAD61 (void);
+extern void UnitDetailsController_DetailCloseAll_mD80C28F67497A537C0E4588B60224A6512498DC4 (void);
+extern void UnitDetailsController__ctor_mAB31806F8816F28790AB82AA67FBA0C8F5E73A06 (void);
+extern void UnitMovedController_Start_m6DDEBEF0C11C1D3237D8FD2F2BCC7C98C266D9DE (void);
+extern void UnitMovedController_initMoved_m0C32C398D72E584B0258F466D3E54407A8F7C4E9 (void);
+extern void UnitMovedController_UpdateMoved_mC2B522A5F3D8FD202AC958C43F957365DE22ABAF (void);
+extern void UnitMovedController_TurnMovedImage_m32B144E0012BEAD0F9AF9DF1023C1ECB4729EC09 (void);
+extern void UnitMovedController__ctor_mFCCDB376A84B021C8111CA4A79B86189C995CAFD (void);
 extern void TitleSceneDirector_Start_m73BC071347228C3DBE97F497D6301A8FE36EEFE4 (void);
 extern void TitleSceneDirector_Update_mBE14DE48E75305DCE715DF060BE058A00F27A517 (void);
 extern void TitleSceneDirector_VsCPU_mE5CA0C542C9070BBFFB51774B42DCBD67E17AD67 (void);
@@ -115,20 +125,9 @@ extern void TitleSceneDirector_movableTile_mB84D94CCC452F6F95D01EF4AFE8997ACE4C3
 extern void TitleSceneDirector_getNextTurn_m2DBDB3E0552A62F85E9EA2640D7529BA23C67CD0 (void);
 extern void TitleSceneDirector__ctor_m355BC6080E522E1837EDA246B0F221C522E95A14 (void);
 extern void TitleSceneDirector__cctor_m6BFC881DD5F90B52A24F5BD1D366783172709463 (void);
-extern void UnitController_Select_mC3AB4EF63E2D5C7E8D88ED869BA27CC0472AD72A (void);
-extern void UnitController__ctor_m9E607883C02A139180E0506FF9C3719960A27066 (void);
-extern void UnitDetailsController_DetailOpen_mB6772179DF41091C235105980A7B8A71D42030B8 (void);
-extern void UnitDetailsController_DetailClose_m1F3D6FC7997AA9541C2C4CA6B145C479081FAD61 (void);
-extern void UnitDetailsController_DetailCloseAll_mD80C28F67497A537C0E4588B60224A6512498DC4 (void);
-extern void UnitDetailsController__ctor_mAB31806F8816F28790AB82AA67FBA0C8F5E73A06 (void);
-extern void UnitMovedController_Start_m6DDEBEF0C11C1D3237D8FD2F2BCC7C98C266D9DE (void);
-extern void UnitMovedController_initMoved_m0C32C398D72E584B0258F466D3E54407A8F7C4E9 (void);
-extern void UnitMovedController_UpdateMoved_mC2B522A5F3D8FD202AC958C43F957365DE22ABAF (void);
-extern void UnitMovedController_TurnMovedImage_m32B144E0012BEAD0F9AF9DF1023C1ECB4729EC09 (void);
-extern void UnitMovedController__ctor_mFCCDB376A84B021C8111CA4A79B86189C995CAFD (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033 (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1 (void);
-static Il2CppMethodPointer s_methodPointers[116] = 
+static Il2CppMethodPointer s_methodPointers[115] = 
 {
 	AnimatedSettingController_get_IsOpen_m258CAF8EF13C08619A166EDC840A6C54A99E48EA,
 	AnimatedSettingController_get_IsTransition_m222323EFEB206647A078E1CC60AEDF6C29FBE0F0,
@@ -196,7 +195,6 @@ static Il2CppMethodPointer s_methodPointers[116] =
 	MessageImageController__ctor_m8FC280EB4EDFCD7396F82D8BFCB88A8EF665A01D,
 	MovableTile_Start_m118724A28BD1544ED11AB738711CA2F961D18292,
 	MovableTile_AlphaChange_m672B329C8ED8D2C8F04CE7532A07327CCAABA201,
-	MovableTile_Update_mC23B8A24E557B5D8DECCF6903F21FD22E6083DB6,
 	MovableTile__ctor_mA3C9765E7E8B9FE93BD9FCBC1CDF0DA3D39D1DCF,
 	U3CAlphaChangeU3Ed__8__ctor_m7C45C5351596693F4FD67DEC169E9EFC3017CDF0,
 	U3CAlphaChangeU3Ed__8_System_IDisposable_Dispose_m9ECD5D5CBA5DC0810693CC8A89EEFDF47CD86F1D,
@@ -217,6 +215,17 @@ static Il2CppMethodPointer s_methodPointers[116] =
 	ResultImageController__ctor_mBF6AE6B58E43515A9315AF6AF55412FB8E457FE3,
 	SettingBackImageController_OnPointerClick_m15216BCBD655FAE0ED82F404FEC961E96CBC0E90,
 	SettingBackImageController__ctor_mA338F61C3C6815766826F13F1BDC72F2DA74D17E,
+	UnitController_Select_mC3AB4EF63E2D5C7E8D88ED869BA27CC0472AD72A,
+	UnitController__ctor_m9E607883C02A139180E0506FF9C3719960A27066,
+	UnitDetailsController_DetailOpen_mB6772179DF41091C235105980A7B8A71D42030B8,
+	UnitDetailsController_DetailClose_m1F3D6FC7997AA9541C2C4CA6B145C479081FAD61,
+	UnitDetailsController_DetailCloseAll_mD80C28F67497A537C0E4588B60224A6512498DC4,
+	UnitDetailsController__ctor_mAB31806F8816F28790AB82AA67FBA0C8F5E73A06,
+	UnitMovedController_Start_m6DDEBEF0C11C1D3237D8FD2F2BCC7C98C266D9DE,
+	UnitMovedController_initMoved_m0C32C398D72E584B0258F466D3E54407A8F7C4E9,
+	UnitMovedController_UpdateMoved_mC2B522A5F3D8FD202AC958C43F957365DE22ABAF,
+	UnitMovedController_TurnMovedImage_m32B144E0012BEAD0F9AF9DF1023C1ECB4729EC09,
+	UnitMovedController__ctor_mFCCDB376A84B021C8111CA4A79B86189C995CAFD,
 	TitleSceneDirector_Start_m73BC071347228C3DBE97F497D6301A8FE36EEFE4,
 	TitleSceneDirector_Update_mBE14DE48E75305DCE715DF060BE058A00F27A517,
 	TitleSceneDirector_VsCPU_mE5CA0C542C9070BBFFB51774B42DCBD67E17AD67,
@@ -233,21 +242,10 @@ static Il2CppMethodPointer s_methodPointers[116] =
 	TitleSceneDirector_getNextTurn_m2DBDB3E0552A62F85E9EA2640D7529BA23C67CD0,
 	TitleSceneDirector__ctor_m355BC6080E522E1837EDA246B0F221C522E95A14,
 	TitleSceneDirector__cctor_m6BFC881DD5F90B52A24F5BD1D366783172709463,
-	UnitController_Select_mC3AB4EF63E2D5C7E8D88ED869BA27CC0472AD72A,
-	UnitController__ctor_m9E607883C02A139180E0506FF9C3719960A27066,
-	UnitDetailsController_DetailOpen_mB6772179DF41091C235105980A7B8A71D42030B8,
-	UnitDetailsController_DetailClose_m1F3D6FC7997AA9541C2C4CA6B145C479081FAD61,
-	UnitDetailsController_DetailCloseAll_mD80C28F67497A537C0E4588B60224A6512498DC4,
-	UnitDetailsController__ctor_mAB31806F8816F28790AB82AA67FBA0C8F5E73A06,
-	UnitMovedController_Start_m6DDEBEF0C11C1D3237D8FD2F2BCC7C98C266D9DE,
-	UnitMovedController_initMoved_m0C32C398D72E584B0258F466D3E54407A8F7C4E9,
-	UnitMovedController_UpdateMoved_mC2B522A5F3D8FD202AC958C43F957365DE22ABAF,
-	UnitMovedController_TurnMovedImage_m32B144E0012BEAD0F9AF9DF1023C1ECB4729EC09,
-	UnitMovedController__ctor_mFCCDB376A84B021C8111CA4A79B86189C995CAFD,
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033,
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1,
 };
-static const int32_t s_InvokerIndices[116] = 
+static const int32_t s_InvokerIndices[115] = 
 {
 	4480,
 	4480,
@@ -316,7 +314,6 @@ static const int32_t s_InvokerIndices[116] =
 	4660,
 	4561,
 	4660,
-	4660,
 	3762,
 	4660,
 	4480,
@@ -336,6 +333,17 @@ static const int32_t s_InvokerIndices[116] =
 	4660,
 	3787,
 	4660,
+	3396,
+	4660,
+	3762,
+	4660,
+	4660,
+	4660,
+	4660,
+	4660,
+	349,
+	4660,
+	4660,
 	4660,
 	4660,
 	4660,
@@ -352,17 +360,6 @@ static const int32_t s_InvokerIndices[116] =
 	4534,
 	4660,
 	6841,
-	3396,
-	4660,
-	3762,
-	4660,
-	4660,
-	4660,
-	4660,
-	4660,
-	349,
-	4660,
-	4660,
 	6846,
 	4660,
 };
@@ -370,7 +367,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	116,
+	115,
 	s_methodPointers,
 	0,
 	NULL,
