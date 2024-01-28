@@ -10,6 +10,7 @@ public class TitleSceneDirector : MonoBehaviour
     public bool[] isPlayer;//プレイヤーの時はisPlayer[0]がtrueになる
     Player[] player;
     int nowTurn;
+    int blueCount, pinkCount;
 
     //ゲームモード ゲーム中の場面切り替え用の変数
     enum MODE
@@ -81,6 +82,8 @@ public class TitleSceneDirector : MonoBehaviour
         List<int> p2rnd = getRandomList(UNIT_MAX, UNIT_MAX / 2);
         int p1unit = 0;//Unitが今何番めのカウントなのか
         int p2unit = 0;
+        blueCount = 8;
+        pinkCount = 8;
 
         //ランダムの数値が一致した時に赤を生成
         //フィールドのサイズ分だけ現在のフィールドの状態の変数を作成
@@ -170,6 +173,7 @@ public class TitleSceneDirector : MonoBehaviour
     private void Update()
     {
         if (isWait()) return;
+        if(blueCount==0 || pinkCount==0) return;
 
         mode();
 
@@ -402,6 +406,12 @@ public class TitleSceneDirector : MonoBehaviour
                         player[nowTurn].IsGoal = true;
                     }
 
+                    if(unitData[i,j][0].GetComponent<UnitController>().PlayerNo == 1){
+                        blueCount--;
+                    }else{
+                        pinkCount--;
+                    }
+
                     Destroy(unitData[i, j][0]);
                     unitData[i, j].RemoveAt(0);
                 }
@@ -409,6 +419,11 @@ public class TitleSceneDirector : MonoBehaviour
                 //２つ置いてあったら古いユニットを消す
                 if (1 < unitData[i, j].Count)
                 {
+                    if(unitData[i,j][0].GetComponent<UnitController>().PlayerNo == 1){
+                        blueCount--;
+                    }else{
+                        pinkCount--;
+                    }
                     Destroy(unitData[i, j][0]);
                     unitData[i, j].RemoveAt(0);
                 }

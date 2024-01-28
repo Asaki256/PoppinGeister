@@ -306,14 +306,14 @@ public class GameDirector : MonoBehaviour
         }
         else if (MODE.FIRST_SELECT == next)
         {
-            messageImageController.DisplayMessageImage("#5BFFA3", player[nowTurn].PlayerNo + "Pのターン");
+            messageImageController.DisplayMessageImage("#ac6de7", player[nowTurn].PlayerNo + "Pのターン");
             waitTime = 3f;
 
             btnUnitChangeComp.SetActive(true);
         }
         else if (MODE.SECOND_SELECT == next)
         {
-            messageImageController.DisplayMessageImage("#5BFFA3", player[nowTurn].PlayerNo + "Pのターン");
+            messageImageController.DisplayMessageImage("#ac6de7", player[nowTurn].PlayerNo + "Pのターン");
             waitTime = 3f;
 
             UnitItemOnOff(2, true);
@@ -337,7 +337,7 @@ public class GameDirector : MonoBehaviour
             btnTurnChange.SetActive(false);
             selectUnit = null;
 
-            messageImageController.DisplayMessageImage("#5BFFA3", player[nowTurn].PlayerNo + "Pのターン");
+            messageImageController.DisplayMessageImage("#ac6de7", player[nowTurn].PlayerNo + "Pのターン");
             waitTime = 3f;
 
             fieldUpdate();
