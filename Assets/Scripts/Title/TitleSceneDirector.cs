@@ -1,12 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class TitleSceneDirector : MonoBehaviour
 {
-    static public int PlayerNum = 1;
-
     public bool[] isPlayer;//プレイヤーの時はisPlayer[0]がtrueになる
     Player[] player;
     int nowTurn;
@@ -178,18 +175,6 @@ public class TitleSceneDirector : MonoBehaviour
         mode();
 
         if (MODE.NONE != nextMode) initMode(nextMode);
-    }
-
-    public void VsCPU()
-    {
-        PlayerNum = 1;
-        SceneManager.LoadScene("MainScene");
-    }
-
-    public void VsPlayer()
-    {
-        PlayerNum = 2;
-        SceneManager.LoadScene("MainScene");
     }
 
     //Resourcesからゲームオブジェクトを作成する関数

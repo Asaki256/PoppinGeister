@@ -158,7 +158,7 @@ public class GameDirector : MonoBehaviour
         player[0] = new Player(false, 1);
         player[1] = new Player(false, 2);
 
-        for (int i = 0; i < TitleSceneDirector.PlayerNum; i++)
+        for (int i = 0; i < UIManager.PlayerNum; i++)
         {
             player[i].IsHuman = true;
         }
