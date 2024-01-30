@@ -16,7 +16,7 @@ public class GenerateRandom : MonoBehaviour
     
     static string generateRandomKey()
     {
-        var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        var characters = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz0123456789";
         var charsArr = new char[8];
         var random = new System.Random();
         for(int i=0; i<charsArr.Length; i++)
