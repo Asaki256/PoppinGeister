@@ -1,4 +1,5 @@
 trackSelection = true
+refreshSearchWindowsInPlayMode = false
 fetchPreview = true
 defaultFlags = 0
 keepOpen = false
@@ -10,6 +11,9 @@ scopes = {
 	"last_search.DA949528" = ""
 	"OpenInspectorPreview.DA949528" = "0"
 	"currentGroup.DA949528" = "all"
+	"last_search.3BE40471" = "TextMeshProUCUI"
+	"OpenInspectorPreview.3BE40471" = "0"
+	"currentGroup.3BE40471" = "all"
 }
 providers = {
 	find = {
@@ -52,18 +56,27 @@ providers = {
 		priority = 210
 		defaultAction = null
 	}
+	profilermarkers = {
+		active = false
+		priority = 100
+		defaultAction = null
+	}
 }
 objectSelectors = {
 }
 recentSearches = [
+	"TextMeshProUCUI"
 ]
 searchItemFavorites = [
 ]
 savedSearchesSortOrder = 0
 showSavedSearchPanel = false
+hideTabs = false
 expandedQueries = [
 ]
 queryBuilder = false
 ignoredProperties = "id;name;classname;imagecontentshash"
 helperWidgetCurrentArea = "all"
 disabledIndexers = ""
+minIndexVariations = 2
+findProviderIndexHelper = true

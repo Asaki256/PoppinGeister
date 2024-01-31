@@ -40,19 +40,23 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.10f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets/Scripts/GameDirector.cs" />
-     <Compile Include="Assets/Scripts/TitleSceneDirector.cs" />
-     <Compile Include="Assets/Scripts/UnitDetailsController.cs" />
-     <Compile Include="Assets/Scripts/ResultImageController.cs" />
-     <Compile Include="Assets/Scripts/UnitController.cs" />
-     <Compile Include="Assets/Scripts/MovableTile.cs" />
-     <Compile Include="Assets/Scripts/AnimatedSettingController.cs" />
-     <Compile Include="Assets/Scripts/PlayerItem.cs" />
-     <Compile Include="Assets/Scripts/SettingBackImageController.cs" />
-     <Compile Include="Assets/Scripts/Player.cs" />
-     <Compile Include="Assets/Scripts/MessageImageController.cs" />
-     <Compile Include="Assets/Scripts/CameraController.cs" />
-     <Compile Include="Assets/Scripts/UnitMovedController.cs" />
+     <Compile Include="Assets/Scripts/Main_Offline/SettingBackImageController.cs" />
+     <Compile Include="Assets/Scripts/Title/GenerateRandom.cs" />
+     <Compile Include="Assets/Scripts/Title/TitleSceneDirector.cs" />
+     <Compile Include="Assets/Scripts/Main_Offline/Player.cs" />
+     <Compile Include="Assets/Scripts/Main_Offline/PlayerItem.cs" />
+     <Compile Include="Assets/Scripts/Main_Offline/AnimatedSettingController.cs" />
+     <Compile Include="Assets/Scripts/Main_Offline/GameDirector.cs" />
+     <Compile Include="Assets/Scripts/Main_Offline/UnitController.cs" />
+     <Compile Include="Assets/Scripts/Main_Offline/UnitDetailsController.cs" />
+     <Compile Include="Assets/Scripts/Main_Offline/CameraController.cs" />
+     <Compile Include="Assets/Scripts/Main_Offline/ResultImageController.cs" />
+     <Compile Include="Assets/Scripts/Main_Offline/UnitMovedController.cs" />
+     <Compile Include="Assets/Scripts/Main_Offline/MovableTile.cs" />
+     <Compile Include="Assets/Scripts/Main_Offline/MessageImageController.cs" />
+     <Compile Include="Assets/Scripts/Title/AnimatedPanelController.cs" />
+     <Compile Include="Assets/Scripts/Title/UIManager.cs" />
+     <Compile Include="Assets/Scripts/Title/BGPanelController.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />

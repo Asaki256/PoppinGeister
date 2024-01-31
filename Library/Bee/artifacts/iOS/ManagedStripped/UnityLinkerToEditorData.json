@@ -845,7 +845,6 @@
           {
             "name": "Font",
             "scenes": [
-              "Assets/Scenes/MainScene.unity",
               "Assets/Scenes/TitleScene.unity"
             ],
             "dependencyType": 0,
