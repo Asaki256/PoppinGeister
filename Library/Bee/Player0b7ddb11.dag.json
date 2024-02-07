@@ -40880,6 +40880,11 @@
       "Outputs": [
         "/Users/masaki/Unity/App_Build/Info.plist"
       ],
+      "StatSignatures": [
+        {
+          "File": "/Users/masaki/Unity/App_Build/Info.plist"
+        }
+      ],
       "DebugActionIndex": 2803
     },
     {
@@ -40960,7 +40965,7 @@
       "DisplayName": "Writing project.pbxproj",
       "ActionType": "WriteFile",
       "PayloadOffset": 121580,
-      "PayloadLength": 164174,
+      "PayloadLength": 164664,
       "PayloadDebugContentSnippet": "// !$*UTF8*$!\n{\n\tarchiveVersio",
       "Inputs": [],
       "Outputs": [
@@ -40972,7 +40977,7 @@
       "Annotation": "WriteText /Users/masaki/Unity/App_Build/Unity-iPhone.xcodeproj/xcshareddata/xcschemes/Unity-iPhone.xcscheme",
       "DisplayName": "Writing Unity-iPhone.xcscheme",
       "ActionType": "WriteFile",
-      "PayloadOffset": 285883,
+      "PayloadOffset": 286373,
       "PayloadLength": 3343,
       "PayloadDebugContentSnippet": "<?xml version=\"1.0\" encoding=\"",
       "Inputs": [],
@@ -43799,12 +43804,6 @@
       "File": "/Applications/Unity/Hub/Editor/2022.3.10f1/PlaybackEngines/iOSSupport/Trampoline/Classes/Unity/InternalProfiler.h"
     },
     {
-      "File": "/Applications/Unity/Hub/Editor/2022.3.10f1/PlaybackEngines/iOSSupport/Trampoline/Info.plist"
-    },
-    {
-      "File": "/Applications/Unity/Hub/Editor/2022.3.10f1/PlaybackEngines/iOSSupport/Trampoline/Unity-iPhone.xcodeproj/project.pbxproj"
-    },
-    {
       "File": "/Applications/Unity/Hub/Editor/2022.3.10f1/PlaybackEngines/iOSSupport/Trampoline/Unity-iPhone.xcodeproj/xcshareddata/xcschemes/Unity-iPhone.xcscheme"
     },
     {
@@ -44030,6 +44029,9 @@
     },
     {
       "File": "/Applications/Unity/Hub/Editor/2022.3.10f1/Unity.app/Contents/il2cpp/libil2cpptiny"
+    },
+    {
+      "File": "/Users/masaki/Unity/App_Build/Unity-iPhone.xcodeproj"
     },
     {
       "File": "/Users/masaki/Unity/PoppinGeister/getconf"

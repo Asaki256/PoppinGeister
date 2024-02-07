@@ -322,7 +322,11 @@
 "Assets/Scripts/Main_Offline/UnitController.cs"
 "Assets/Scripts/Main_Offline/UnitDetailsController.cs"
 "Assets/Scripts/Main_Offline/UnitMovedController.cs"
+"Assets/Scripts/Title/AnimatedPanelController.cs"
+"Assets/Scripts/Title/BGPanelController.cs"
+"Assets/Scripts/Title/GenerateRandom.cs"
 "Assets/Scripts/Title/TitleSceneDirector.cs"
+"Assets/Scripts/Title/UIManager.cs"
 -langversion:9.0
 
 /deterministic
