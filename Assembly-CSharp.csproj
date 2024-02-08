@@ -51,6 +51,7 @@
      <Compile Include="Assets/Scripts/Main_Offline/UnitDetailsController.cs" />
      <Compile Include="Assets/Scripts/Main_Offline/CameraController.cs" />
      <Compile Include="Assets/Scripts/Main_Offline/ResultImageController.cs" />
+     <Compile Include="Assets/Scripts/Title/UserSettingManager.cs" />
      <Compile Include="Assets/Scripts/Main_Offline/UnitMovedController.cs" />
      <Compile Include="Assets/Scripts/Main_Offline/MovableTile.cs" />
      <Compile Include="Assets/Scripts/Main_Offline/MessageImageController.cs" />

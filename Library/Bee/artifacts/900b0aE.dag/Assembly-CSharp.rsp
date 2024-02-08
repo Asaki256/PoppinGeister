@@ -378,6 +378,7 @@
 "Assets/Scripts/Title/GenerateRandom.cs"
 "Assets/Scripts/Title/TitleSceneDirector.cs"
 "Assets/Scripts/Title/UIManager.cs"
+"Assets/Scripts/Title/UserSettingManager.cs"
 -langversion:9.0
 
 /deterministic

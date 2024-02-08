@@ -736,6 +736,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 92541233}
+  - component: {fileID: 92541234}
   m_Layer: 0
   m_Name: UserSettingManager
   m_TagString: Untagged
@@ -758,6 +759,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &92541234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92541232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05d945af7546c4dee9ed443b5e3f11db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorToggleGroup: {fileID: 2144956213}
 --- !u!1 &94601461
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,7 +1008,19 @@ MonoBehaviour:
   m_Group: {fileID: 2144956213}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickColorToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &116920297
 GameObject:
@@ -5226,7 +5252,19 @@ MonoBehaviour:
   m_Group: {fileID: 2144956213}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickColorToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &662699399
 GameObject:
@@ -5386,7 +5424,19 @@ MonoBehaviour:
   m_Group: {fileID: 2144956213}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickColorToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &675350305
 GameObject:
@@ -6343,7 +6393,19 @@ MonoBehaviour:
   m_Group: {fileID: 2144956213}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickColorToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &812361741
 GameObject:
@@ -6625,7 +6687,19 @@ MonoBehaviour:
   m_Group: {fileID: 2144956213}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickColorToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &948201410
 GameObject:
@@ -6960,7 +7034,19 @@ MonoBehaviour:
   m_Group: {fileID: 2144956213}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickColorToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &981234708
 GameObject:
@@ -8702,7 +8788,19 @@ MonoBehaviour:
   m_Group: {fileID: 2144956213}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickColorToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1237713460
 GameObject:
@@ -8787,7 +8885,19 @@ MonoBehaviour:
   m_Group: {fileID: 2144956213}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickColorToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1244730854
 GameObject:
@@ -8872,7 +8982,19 @@ MonoBehaviour:
   m_Group: {fileID: 2144956213}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickColorToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1252619037
 GameObject:
@@ -9545,7 +9667,19 @@ MonoBehaviour:
   m_Group: {fileID: 2144956213}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickColorToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1308029184
 GameObject:
@@ -13880,7 +14014,19 @@ MonoBehaviour:
   m_Group: {fileID: 2144956213}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickColorToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1911031248
 GameObject:
@@ -14837,7 +14983,19 @@ MonoBehaviour:
   m_Group: {fileID: 2144956213}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickColorToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &2044534490
 GameObject:
@@ -14922,7 +15080,19 @@ MonoBehaviour:
   m_Group: {fileID: 2144956213}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickColorToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &2055868806
 GameObject:
@@ -15316,7 +15486,19 @@ MonoBehaviour:
   m_Group: {fileID: 2144956213}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickColorToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &2107310418
 GameObject:
