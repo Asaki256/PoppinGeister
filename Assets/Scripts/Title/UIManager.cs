@@ -7,8 +7,23 @@ public class UIManager : MonoBehaviour
 {
     static public int PlayerNum = 1;
 
-    [SerializeField]
-    GameObject PanelUIObj;
+    [SerializeField] GameObject PanelUIObj;
+    [SerializeField] GameObject userSettingPanel;
+
+    public void OpenUserSettingPanel()
+    {
+        if(userSettingPanel)
+        {
+            userSettingPanel.SetActive(true);
+        }
+    }
+    public void CloseUserSettingPanel()
+    {
+        if(userSettingPanel)
+        {
+            userSettingPanel.SetActive(false);
+        }
+    }
 
     public void OpenKeyInputPanel()
     {
