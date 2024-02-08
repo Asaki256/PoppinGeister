@@ -772,6 +772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorToggleGroup: {fileID: 2144956213}
+  iconToggleGroup: {fileID: 328934779}
 --- !u!1 &94601461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,7 +1106,19 @@ MonoBehaviour:
   m_Group: {fileID: 328934779}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickIconToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &132164261
 GameObject:
@@ -6490,7 +6503,19 @@ MonoBehaviour:
   m_Group: {fileID: 328934779}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickIconToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &890564509
 GameObject:
@@ -7736,7 +7761,19 @@ MonoBehaviour:
   m_Group: {fileID: 328934779}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickIconToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1059943571
 GameObject:
@@ -13049,7 +13086,19 @@ MonoBehaviour:
   m_Group: {fileID: 328934779}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 92541234}
+        m_TargetAssemblyTypeName: UserSettingManager, Assembly-CSharp
+        m_MethodName: onClickIconToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1761245295
 GameObject:
