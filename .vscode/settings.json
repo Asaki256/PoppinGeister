@@ -54,5 +54,10 @@
     },
     "omnisharp.useGlobalMono": "always",
     "omnisharp.monoPath": "/Library/Frameworks/Mono.framework/Versions/Current",
-    "dotnet.defaultSolution": "PoppinGeister.sln"
+    "dotnet.defaultSolution": "PoppinGeister.sln",
+    "cSpell.words": [
+        "Behaviour",
+        "Prefs",
+        "UGUI"
+    ]
 }

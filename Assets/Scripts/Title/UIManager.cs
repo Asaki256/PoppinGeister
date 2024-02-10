@@ -7,20 +7,28 @@ public class UIManager : MonoBehaviour
 {
     static public int PlayerNum = 1;
 
-    [SerializeField] GameObject PanelUIObj;
     [SerializeField] GameObject userSettingPanel;
+    [SerializeField] UserSettingManager userSettingManager;
+
+    // ホーム(タイトル)画面の初期化処理
+    void Start()
+    {
+        userSettingManager.InitHomeUserSetting();
+    }
 
     public void OpenUserSettingPanel()
     {
         if(userSettingPanel)
         {
             userSettingPanel.SetActive(true);
+            userSettingManager.InitUserSetting();
         }
     }
     public void CloseUserSettingPanel()
     {
         if(userSettingPanel)
         {
+            userSettingManager.SaveUserSetting();
             userSettingPanel.SetActive(false);
         }
     }
