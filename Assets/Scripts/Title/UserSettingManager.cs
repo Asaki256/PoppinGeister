@@ -7,16 +7,13 @@ using TMPro;
 
 public class UserSettingManager : MonoBehaviour
 {
-
     [SerializeField] ToggleGroup colorToggleGroup;
     [SerializeField] ToggleGroup iconItemToggleGroup;
     [SerializeField] TMP_InputField userNameInputField;
     [SerializeField] TMP_InputField userCommentInputField;
     [SerializeField] Image userColorImage;
     [SerializeField] Image userIconItemImage;
-    [SerializeField] TextMeshProUGUI homeUserName;
-    [SerializeField] Image homeUserColorImage;
-    [SerializeField] Image homeUserIconItemImage;
+    [SerializeField] UIManager uIManager;
 
     // トグル選択時にカラーコード取得
     public void onClickColorToggle()
@@ -44,7 +41,7 @@ public class UserSettingManager : MonoBehaviour
             Toggle selectedIconToggle = iconItemToggleGroup.ActiveToggles().FirstOrDefault();
             if(selectedIconToggle.isOn && selectedIconToggle){
                 string iconName = selectedIconToggle.gameObject.name;
-                updateUserIcon(iconName);
+                UpdateUserIcon(iconName, ref userIconItemImage);
             }
         }
     }
@@ -79,25 +76,16 @@ public class UserSettingManager : MonoBehaviour
         PlayerPrefs.Save();
 
         // ホーム画面のユーザ設定の更新
-        homeUserName.text = userNameInputField.text;
-        updateHomeUserIcon(iconName);
-        updateHomeUserIconColor(colorCodeStr);
+        uIManager.UpdateHomeUserSetting();
     }
 
     // ユーザ設定パネルが開く時に実行するメソッド
-    public void InitUserSetting()
+    public void InitUserSettingPanel()
     {
-        // PlayerPrefsから各値を取得(取得できなかった場合、デフォルトの値をセット)
-        string userNameStr = PlayerPrefs.GetString("UserName", "NoName");
-        string userCommentStr = PlayerPrefs.GetString("UserComment", "よろしくお願いします。");
-        string iconNameStr = PlayerPrefs.GetString("IconName", "SelectIcon_none");
-        string colorCodeStr = PlayerPrefs.GetString("ColorCode", "55B8FF");
+        InitUserSetting(ref userNameInputField, ref userCommentInputField,  ref userColorImage, ref userIconItemImage);
 
-        // 取得した値を元に、ゲーム内のUIに初期値をセットする
-        userNameInputField.text = userNameStr;
-        userCommentInputField.text = userCommentStr;
-        updateUserIcon(iconNameStr);
-        updateUserIconColor(colorCodeStr);
+        string colorCodeStr = PlayerPrefs.GetString("ColorCode", "55B8FF");
+        string iconNameStr = PlayerPrefs.GetString("IconName", "SelectIcon_none");
 
         // アイコンアイテムの種類トグル設定
         Transform itemParent = iconItemToggleGroup.transform;
@@ -128,17 +116,6 @@ public class UserSettingManager : MonoBehaviour
         }
     }
 
-    // ホーム画面のユーザ設定表示
-    public void InitHomeUserSetting()
-    {
-        string userNameStr = PlayerPrefs.GetString("UserName", "NoName");
-        string iconNameStr = PlayerPrefs.GetString("IconName", "SelectIcon_none");
-        string colorCodeStr = PlayerPrefs.GetString("ColorCode", "55B8FF");
-
-        homeUserName.text = userNameStr;
-        updateHomeUserIcon(iconNameStr);
-        updateHomeUserIconColor(colorCodeStr);
-    }
 
     // パスからSprite型の画像を取得するメソッド
     public static Sprite LoadSprite(string path)
@@ -159,80 +136,91 @@ public class UserSettingManager : MonoBehaviour
     }
 
     // ユーザアイコンアイテムの変更メソッド
-    public void updateUserIcon(string iconName)
+    public void UpdateUserIcon(string iconName, ref Image image)
     {
         if(iconName == "SelectIcon_none"){
-            var c = userIconItemImage.color;
-            userIconItemImage.color = new Color(c.r, c.g, c.b, 0);
+            var c = image.color;
+            image.color = new Color(c.r, c.g, c.b, 0);
 
-            userIconItemImage.sprite = null;
+            image.sprite = null;
         }else{
-            var c = userIconItemImage.color;
-            userIconItemImage.color = new Color(c.r, c.g, c.b, 1);
+            var c = image.color;
+            image.color = new Color(c.r, c.g, c.b, 1);
 
             if(iconName == "SelectIcon_diviner"){
-                userIconItemImage.sprite = LoadSprite("Assets/Sprites/IconItem_diviner.png");
+                image.sprite = LoadSprite("Assets/Sprites/IconItem_diviner.png");
             }else if(iconName == "SelectIcon_death"){
-                userIconItemImage.sprite = LoadSprite("Assets/Sprites/IconItem_death.png");
+                image.sprite = LoadSprite("Assets/Sprites/IconItem_death.png");
             }else if(iconName == "SelectIcon_king"){
-                userIconItemImage.sprite = LoadSprite("Assets/Sprites/IconItem_king.png");
-            }
-        }
-    }
-
-    // ユーザアイコンアイテムの変更メソッド(ホーム)
-    public void updateHomeUserIcon(string iconName)
-    {
-        if(iconName == "SelectIcon_none"){
-            var c = homeUserIconItemImage.color;
-            homeUserIconItemImage.color = new Color(c.r, c.g, c.b, 0);
-
-            homeUserIconItemImage.sprite = null;
-        }else{
-            var c = homeUserIconItemImage.color;
-            homeUserIconItemImage.color = new Color(c.r, c.g, c.b, 1);
-
-            if(iconName == "SelectIcon_diviner"){
-                homeUserIconItemImage.sprite = LoadSprite("Assets/Sprites/IconItem_diviner.png");
-            }else if(iconName == "SelectIcon_death"){
-                homeUserIconItemImage.sprite = LoadSprite("Assets/Sprites/IconItem_death.png");
-            }else if(iconName == "SelectIcon_king"){
-                homeUserIconItemImage.sprite = LoadSprite("Assets/Sprites/IconItem_king.png");
+                image.sprite = LoadSprite("Assets/Sprites/IconItem_king.png");
             }
         }
     }
 
     // アイコンの色変更メソッド
-    public void updateUserIconColor(string colorCode)
+    public void UpdateUserIconColor(string colorCode, ref Image image)
     {
         Color color = new Color(0.33f, 0.72f, 1f, 1f);
         // outキーワードで参照渡しにする
         if (ColorUtility.TryParseHtmlString("#"+colorCode, out color))
         {
             // Color型への変換成功（colorにColor型の色が代入される）
-            userColorImage.color = color;
+            image.color = color;
         }
         else
         {
             // Color型への変換失敗（colorはColor型の初期値のまま）
-            userColorImage.color = color;
+            image.color = color;
         }
     }
 
-    // アイコンの色変更メソッド(ホーム)
-    public void updateHomeUserIconColor(string colorCode)
+
+    /// <summary>
+    /// ユーザ設定取得＋値をセット(コメントを除いた引数３)
+    /// </summary>
+    /// <param name="userName"></param>
+    /// <param name="iconColorImage"></param>
+    /// <param name="iconItemImage"></param>
+    public void InitUserSetting(ref TextMeshProUGUI userName, ref Image iconColorImage, ref Image iconItemImage)
     {
-        Color color = new Color(0.33f, 0.72f, 1f, 1f);
-        // outキーワードで参照渡しにする
-        if (ColorUtility.TryParseHtmlString("#"+colorCode, out color))
-        {
-            // Color型への変換成功（colorにColor型の色が代入される）
-            homeUserColorImage.color = color;
-        }
-        else
-        {
-            // Color型への変換失敗（colorはColor型の初期値のまま）
-            homeUserColorImage.color = color;
-        }
+        // ローカルからユーザ設定データ取得
+        // 取得した値を各項目にセット
+        userName.text = PlayerPrefs.GetString("UserName", "NoName");
+        UpdateUserIconColor(PlayerPrefs.GetString("ColorCode", "55B8FF"), ref iconColorImage);
+        UpdateUserIcon(PlayerPrefs.GetString("IconName", "SelectIcon_none"), ref iconItemImage);
     }
+    /// <summary>
+    /// ユーザ設定取得＋値をセット(引数4)
+    /// </summary>
+    /// <param name="userName"></param>
+    /// <param name="userComment"></param>
+    /// <param name="iconColorImage"></param>
+    /// <param name="iconItemImage"></param>
+    public void InitUserSetting(ref TextMeshProUGUI userName, ref TextMeshProUGUI userComment, ref Image iconColorImage, ref Image iconItemImage)
+    {
+        // ローカルからユーザ設定データ取得
+        // 取得した値を各項目にセット
+        userName.text = PlayerPrefs.GetString("UserName", "NoName");
+        userComment.text = PlayerPrefs.GetString("UserComment", "よろしくお願いします。");
+        UpdateUserIconColor(PlayerPrefs.GetString("ColorCode", "55B8FF"), ref iconColorImage);
+        UpdateUserIcon(PlayerPrefs.GetString("IconName", "SelectIcon_none"), ref iconItemImage);
+    }
+    
+    /// <summary>
+    /// ユーザ設定取得＋値をセット(引数4)
+    /// </summary>
+    /// <param name="userNameIF"></param>
+    /// <param name="userCommentIF"></param>
+    /// <param name="iconColorImage"></param>
+    /// <param name="iconItemImage"></param>
+    public void InitUserSetting(ref TMP_InputField userNameIF, ref TMP_InputField userCommentIF, ref Image iconColorImage, ref Image iconItemImage)
+    {
+        // ローカルからユーザ設定データ取得
+        // 取得した値を各項目にセット
+        userNameIF.text = PlayerPrefs.GetString("UserName", "NoName");
+        userCommentIF.text = PlayerPrefs.GetString("UserComment", "よろしくお願いします。");
+        UpdateUserIconColor(PlayerPrefs.GetString("ColorCode", "55B8FF"), ref iconColorImage);
+        UpdateUserIcon(PlayerPrefs.GetString("IconName", "SelectIcon_none"), ref iconItemImage);
+    }
+
 }

@@ -376,6 +376,7 @@
 "Assets/Scripts/Title/AnimatedPanelController.cs"
 "Assets/Scripts/Title/BGPanelController.cs"
 "Assets/Scripts/Title/GenerateRandom.cs"
+"Assets/Scripts/Title/PrivateMatchSettingManager.cs"
 "Assets/Scripts/Title/TitleSceneDirector.cs"
 "Assets/Scripts/Title/UIManager.cs"
 "Assets/Scripts/Title/UserSettingManager.cs"

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,11 +11,19 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] GameObject userSettingPanel;
     [SerializeField] UserSettingManager userSettingManager;
+    [SerializeField] TextMeshProUGUI homeUserName;
+    [SerializeField] Image homeUserColorImage;
+    [SerializeField] Image homeUserIconItemImage;
 
     // ホーム(タイトル)画面の初期化処理
     void Start()
     {
-        userSettingManager.InitHomeUserSetting();
+        UpdateHomeUserSetting();
+    }
+
+    public void UpdateHomeUserSetting()
+    {
+        userSettingManager.InitUserSetting(ref homeUserName, ref homeUserColorImage, ref homeUserIconItemImage);
     }
 
     public void OpenUserSettingPanel()
@@ -21,7 +31,7 @@ public class UIManager : MonoBehaviour
         if(userSettingPanel)
         {
             userSettingPanel.SetActive(true);
-            userSettingManager.InitUserSetting();
+            userSettingManager.InitUserSettingPanel();
         }
     }
     public void CloseUserSettingPanel()

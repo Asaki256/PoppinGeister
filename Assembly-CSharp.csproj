@@ -45,6 +45,7 @@
      <Compile Include="Assets/Scripts/Title/TitleSceneDirector.cs" />
      <Compile Include="Assets/Scripts/Main_Offline/Player.cs" />
      <Compile Include="Assets/Scripts/Main_Offline/PlayerItem.cs" />
+     <Compile Include="Assets/Scripts/Title/PrivateMatchSettingManager.cs" />
      <Compile Include="Assets/Scripts/Main_Offline/AnimatedSettingController.cs" />
      <Compile Include="Assets/Scripts/Main_Offline/GameDirector.cs" />
      <Compile Include="Assets/Scripts/Main_Offline/UnitController.cs" />
